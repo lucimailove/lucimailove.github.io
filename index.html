@@ -3,29 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para ti ❤️</title>
+<title>¿Quieres ser mi Valentine? ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
 body{
-  font-family: 'Poppins', sans-serif;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#ffe6ee,#ffd6e0);
   text-align:center;
-  background: linear-gradient(180deg,#ffe6ee,#ffd6e0);
-  padding:20px;
   margin:0;
+  padding:20px;
+  overflow:hidden;
 }
 
-.seccion{
-  opacity:0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-  margin-top:50px;
+.pantalla{
+  display:none;
+  margin-top:60px;
+  animation: fade .6s ease;
 }
 
-.seccion.mostrar{
-  opacity:1;
-  transform: translateY(0);
+@keyframes fade{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 button{
@@ -33,55 +33,66 @@ button{
   color:white;
   border:none;
   padding:14px 22px;
-  margin-top:20px;
   font-size:18px;
   border-radius:12px;
+  margin:10px;
   cursor:pointer;
-  transition: transform .2s, box-shadow .2s;
+  transition:.2s;
 }
 
 button:hover{
-  transform: scale(1.05);
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-h1,h2{
-  font-weight:600;
+  transform:scale(1.08);
 }
 </style>
 </head>
 
 <body>
 
-<div class="seccion mostrar">
+<!-- Pantalla 1 -->
+<div class="pantalla" style="display:block">
   <h1>Hola ❤️</h1>
-  <p>Hay algo que quiero preguntarte...</p>
-  <button onclick="mostrar(1)">Siguiente</button>
+  <p>Tengo algo importante que preguntarte...</p>
+  <button onclick="next(1)">Siguiente</button>
 </div>
 
-<div class="seccion">
-  <p>Desde que te conocí todo es más bonito ✨</p>
-  <button onclick="mostrar(2)">Siguiente</button>
+<!-- Pantalla 2 -->
+<div class="pantalla">
+  <p>Desde que llegaste haces mis días más felices ✨</p>
+  <button onclick="next(2)">Siguiente</button>
 </div>
 
-<div class="seccion">
+<!-- Pantalla 3 -->
+<div class="pantalla">
   <h2>¿Quieres ser mi Valentine? 💘</h2>
-  <button onclick="mostrar(3)">Sí ❤️</button>
+  <br>
+  <button onclick="acepto()">Sí ❤️</button>
+  <button id="noBtn" onmouseover="mover()">No 😢</button>
 </div>
 
-<div class="seccion">
+<!-- Pantalla Final -->
+<div class="pantalla">
   <h2>Sabía que dirías que sí 😍</h2>
-  <p>Prometo hacerte muy feliz y darte siempre mi mundo entero porque te lo mereces.</p>
+  <p>Prepárate para muchos momentos hermosos juntos 💞</p>
 </div>
 
 <script>
-function mostrar(n){
-  const secciones = document.querySelectorAll(".seccion");
-  secciones[n].classList.add("mostrar");
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: "smooth"
-  });
+function next(n){
+  document.querySelectorAll(".pantalla")[n].style.display="block";
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+}
+
+function acepto(){
+  document.querySelectorAll(".pantalla")[3].style.display="block";
+  window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+}
+
+function mover(){
+  const btn = document.getElementById("noBtn");
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  btn.style.position="absolute";
+  btn.style.left=x+"px";
+  btn.style.top=y+"px";
 }
 </script>
 
