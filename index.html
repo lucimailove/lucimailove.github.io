@@ -5,55 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para ti ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
 body{
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align:center;
-  background:#ffe6ee;
+  background: linear-gradient(180deg,#ffe6ee,#ffd6e0);
   padding:20px;
+  margin:0;
 }
 
-.seccion{ display:none; margin-top:40px; }
+.seccion{
+  opacity:0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  margin-top:50px;
+}
+
+.seccion.mostrar{
+  opacity:1;
+  transform: translateY(0);
+}
 
 button{
   background:#ff4d6d;
   color:white;
   border:none;
-  padding:12px 20px;
+  padding:14px 22px;
   margin-top:20px;
   font-size:18px;
-  border-radius:10px;
+  border-radius:12px;
+  cursor:pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+button:hover{
+  transform: scale(1.05);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+h1,h2{
+  font-weight:600;
 }
 </style>
 </head>
 
 <body>
 
-<div class="seccion" style="display:block">
+<div class="seccion mostrar">
   <h1>Hola ❤️</h1>
   <p>Hay algo que quiero preguntarte...</p>
   <button onclick="mostrar(1)">Siguiente</button>
 </div>
 
 <div class="seccion">
-  <p>Desde que te conocí todo es más mejor y más bonito ✨</p>
+  <p>Desde que te conocí todo es más bonito ✨</p>
   <button onclick="mostrar(2)">Siguiente</button>
 </div>
 
 <div class="seccion">
-  <h2>¿Quieres ser mi valentine mi pechocha? 💘</h2>
+  <h2>¿Quieres ser mi Valentine? 💘</h2>
   <button onclick="mostrar(3)">Sí ❤️</button>
 </div>
 
 <div class="seccion">
-  <h2>Sabía que dirías que sii yayyy 😍</h2>
+  <h2>Sabía que dirías que sí 😍</h2>
   <p>Prometo hacerte muy feliz y darte siempre mi mundo entero porque te lo mereces.</p>
 </div>
 
 <script>
 function mostrar(n){
-  document.querySelectorAll(".seccion")[n].style.display="block";
-  window.scrollTo(0, document.body.scrollHeight);
+  const secciones = document.querySelectorAll(".seccion");
+  secciones[n].classList.add("mostrar");
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
 }
 </script>
 
