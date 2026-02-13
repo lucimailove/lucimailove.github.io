@@ -1,8 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta http-equiv="refresh" content="0; url=https://kellyvalentina.github.io/quieres_ser_mi_valentine/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  text-align:center;
+  background:#ffe6ee;
+  padding:20px;
+}
+
+.seccion{ display:none; margin-top:40px; }
+
+button{
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  margin-top:20px;
+  font-size:18px;
+  border-radius:10px;
+}
+</style>
 </head>
+
 <body>
+
+<div class="seccion" style="display:block">
+  <h1>Hola ❤️</h1>
+  <p>Hay algo que quiero preguntarte...</p>
+  <button onclick="mostrar(1)">Siguiente</button>
+</div>
+
+<div class="seccion">
+  <p>Desde que te conocí todo es más mejor y más bonito ✨</p>
+  <button onclick="mostrar(2)">Siguiente</button>
+</div>
+
+<div class="seccion">
+  <h2>¿Quieres ser mi valentine mi pechocha? 💘</h2>
+  <button onclick="mostrar(3)">Sí ❤️</button>
+</div>
+
+<div class="seccion">
+  <h2>Sabía que dirías que sii yayyy 😍</h2>
+  <p>Prometo hacerte muy feliz y darte siempre mi mundo entero porque te lo mereces.</p>
+</div>
+
+<script>
+function mostrar(n){
+  document.querySelectorAll(".seccion")[n].style.display="block";
+  window.scrollTo(0, document.body.scrollHeight);
+}
+</script>
+
 </body>
 </html>
